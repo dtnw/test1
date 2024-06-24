@@ -18,6 +18,7 @@ public static class Script
 
             // Wait for page to load
             System.Threading.Thread.Sleep(3000);
+            Console.Write("new test");
 
             // Navigate to About Page
             IWebElement aboutLink = driver.FindElement(By.XPath("//a[contains(text(), 'About')]"));
