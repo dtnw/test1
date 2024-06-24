@@ -1,7 +1,7 @@
 pipeline{
     agent any
         environment {
-        // Define a variable for the application URL, adjust the port if necessary
+        // Define a variable for the application URL
         APP_URL = "http://localhost:5173"
     }
     stages{
@@ -12,24 +12,22 @@ pipeline{
         }
         stage('Build'){
             steps{
-                echo "Build the code using Vue to compile and package the code."
+                echo "Building Vue.js web app using npm"
                 dir("my-project"){
                     bat "npm install"
                     bat "npm run build"
                 }
+                echo "Vue web app successfully built"
             }
         }
         stage('Start Application') {
             steps {
+                echo "Start application"
                 script {
-                    // Navigate to the project directory
                     dir('my-project') {
-                        // Install dependencies
                         bat 'npm install'
-                        
-                        // Start the Vue.js application in the background
+                        // Start the Vue.js application
                         bat 'start /B npm run dev'
-                        
                         // Wait for the application to start
                         retry(5) {
                             sleep time: 10, unit: 'SECONDS'
@@ -41,12 +39,13 @@ pipeline{
             }
         stage('Unit and Integration Tests'){
             steps {
+                echo "Begin Selenium Tests"
                 dir("test/seleniumtest/seleniumtest"){
                     bat "dotnet run"
                 }
+                echo "Successfully conducted Selenium Tests"
             }
         }
-        
         stage('Deploy'){
             steps{
                     echo "Deploy the application to 000webhost"
@@ -74,6 +73,7 @@ pipeline{
                         useWorkspaceInPromotion: false,
                         verbose: false
                     ]]
+                    echo "Application successfully deployed to sit753-task6.000webhost.com"
                 }
         }
     }
