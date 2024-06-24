@@ -12,64 +12,55 @@ public static class Script
 
         try
         {
-            // Navigate to Home Page
+            // Log message
+            Console.WriteLine("Navigating to Home Page");
             driver.Navigate().GoToUrl("http://localhost:5173");
-
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
-            Console.Write("new test");
 
-            // Navigate to About Page
-            Console.Write("Go to About Page");
+            // Log message
+            Console.WriteLine("Navigating to About Page");
             IWebElement aboutLink = driver.FindElement(By.XPath("//a[contains(text(), 'About')]"));
             aboutLink.Click();
+            System.Threading.Thread.Sleep(3000);
 
-            // Wait for page to load
-            System.Threading.Thread.Sleep(5000);
-
-            // Click on the "Vue" link
+            // Log message
+            Console.WriteLine("Clicking on the 'Vue' link");
             IWebElement vueLink = driver.FindElement(By.XPath("//a[contains(text(), 'Vue')]"));
             vueLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
-            // Click on the "Jenkins" link
+            // Log message
+            Console.WriteLine("Clicking on the 'Jenkins' link");
             IWebElement jenkinsLink = driver.FindElement(By.XPath("//a[contains(text(), 'Jenkins')]"));
             jenkinsLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
-            // Click on the "GitHub" link
+            // Log message
+            Console.WriteLine("Clicking on the 'GitHub' link");
             IWebElement githubLink = driver.FindElement(By.XPath("//a[contains(text(), 'GitHub')]"));
             githubLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
-            // Click on the "Selenium" link
+            // Log message
+            Console.WriteLine("Clicking on the 'Selenium' link");
             IWebElement seleniumLink = driver.FindElement(By.XPath("//a[contains(text(), 'Selenium')]"));
             seleniumLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
-            // Click on the "000webhost.com" link
+            // Log message
+            Console.WriteLine("Clicking on the '000webhost.com' link");
             IWebElement webhostLink = driver.FindElement(By.XPath("//a[contains(text(), '000webhost.com')]"));
             webhostLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
-            // Click on the "Publish over FTP" link
+            // Log message
+            Console.WriteLine("Clicking on the 'Publish over FTP' link");
             IWebElement ftpLink = driver.FindElement(By.XPath("//a[contains(text(), 'Publish over FTP')]"));
             ftpLink.Click();
-
-            // Wait for page to load
             System.Threading.Thread.Sleep(3000);
 
+            // Log message
+            Console.WriteLine("Tests completed successfully.");
         }
         finally
         {
