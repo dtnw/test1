@@ -21,6 +21,7 @@ public static class Script
             Console.Write("new test");
 
             // Navigate to About Page
+            Console.Write("Go to About Page");
             IWebElement aboutLink = driver.FindElement(By.XPath("//a[contains(text(), 'About')]"));
             aboutLink.Click();
 
