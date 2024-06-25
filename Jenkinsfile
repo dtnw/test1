@@ -1,13 +1,12 @@
 pipeline{
     agent any
         environment {
-        // Define a variable for the application URL
         APP_URL = "http://localhost:5173"
     }
     stages{
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/dtnw/test1.git'
+                git branch: 'main', url: 'https://github.com/dtnw/6.2HDdemo.git'
             }
         }
         stage('Build'){
@@ -26,9 +25,7 @@ pipeline{
                 script {
                     dir('my-project') {
                         bat 'npm install'
-                        // Start the Vue.js application
                         bat 'start /B npm run dev'
-                        // Wait for the application to start
                         retry(5) {
                             sleep time: 10, unit: 'SECONDS'
                             bat "curl --fail ${env.APP_URL} || exit 1"
