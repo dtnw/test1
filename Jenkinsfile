@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/dtnw/test1.git'
+                git branch: 'main', url: 'https://github.com/dtnw/6.2HDdemo.git'
             }
         }
         stage('Build'){
