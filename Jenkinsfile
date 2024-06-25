@@ -73,7 +73,7 @@ pipeline{
                         useWorkspaceInPromotion: false,
                         verbose: false
                     ]]
-                    echo "Application successfully deployed to sit753-task6.000webhost.com"
+                    echo "Application successfully deployed to sit753-task6.000webhostapp.com"
                 }
         }
     }
